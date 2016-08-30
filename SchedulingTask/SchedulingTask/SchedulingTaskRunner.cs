@@ -10,52 +10,26 @@ namespace SchedulingTask
 {
     public sealed class SchedulingTaskRunner
     {
-        private readonly IScheduler scheduler;
+        //private readonly IScheduler scheduler;
+        private ScheduleFactory scheduleFactory;
+        public ScheduleFactory ScheduleFactory
+        {
+            get { return scheduleFactory; }
+        }
 
         public SchedulingTaskRunner()
         {
-            scheduler = StdSchedulerFactory.GetDefaultScheduler();
-        }
-
-        public bool AddScheduler<T>(JobInfo jobInfo, TriggerInfo triggerInfo,
-            Dictionary<string, object> jobParam) where T : IJob
-        {
-            try
-            {
-                // define the job and tie it to our HelloJob class
-                IJobDetail job = JobBuilder.Create<T>()
-                    .WithIdentity(jobInfo.JobName, jobInfo.JobGroup)
-                    .Build();
-
-                // Trigger the job to run on the next round minute
-                ITrigger trigger = TriggerBuilder.Create()
-                    .WithIdentity(triggerInfo.TriggerName, triggerInfo.TriggerGroup)
-                    .StartNow()
-                    .WithSchedule(SimpleScheduleBuilder.Create().WithIntervalInSeconds(triggerInfo.SecondInterval).RepeatForever())
-                    .Build();
-
-                // set parameters
-                foreach(var key in jobParam.Keys)
-                {
-                    job.JobDataMap.Put(key, jobParam[key]);
-                }
-
-                // Tell quartz to schedule the job using our trigger
-                scheduler.ScheduleJob(job, trigger);
-                return true;
-            }
-            catch (SchedulerException se)
-            {
-                LogHelper.WriteLog("添加定时任务报错：" + se);
-                return false;
-            }
+            //scheduler = StdSchedulerFactory.GetDefaultScheduler();
+            scheduleFactory = new ScheduleFactory();
+            scheduleFactory.Initial();
+            //scheduler = scheduleFactory.Scheduler;
         }
 
         public bool Start()
         {
             try
             {
-                scheduler.Start();
+                scheduleFactory.Scheduler.Start();
                 return true;
             }
             catch (SchedulerException se)
@@ -69,7 +43,7 @@ namespace SchedulingTask
         {
             try
             {
-                scheduler.Shutdown();
+                scheduleFactory.Scheduler.Shutdown();
                 return true;
             }
             catch (SchedulerException se)
@@ -83,7 +57,7 @@ namespace SchedulingTask
         {
             try
             {
-                scheduler.PauseAll();
+                scheduleFactory.Scheduler.PauseAll();
                 return true;
             }
             catch (SchedulerException se)
@@ -97,7 +71,7 @@ namespace SchedulingTask
         {
             try
             {
-                scheduler.ResumeAll();
+                scheduleFactory.Scheduler.ResumeAll();
                 return true;
             }
             catch (SchedulerException se)

@@ -8,3 +8,15 @@ E:\zcsgit\SchedulingTask\SchedulingTask\bin\Debug\Quartz.xml
 E:\zcsgit\SchedulingTask\SchedulingTask\obj\Debug\SchedulingTask.dll
 E:\zcsgit\SchedulingTask\SchedulingTask\obj\Debug\SchedulingTask.pdb
 E:\zcsgit\SchedulingTask\SchedulingTask\bin\Debug\log4net.config
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\bin\Debug\log4net.config
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\bin\Debug\schedule.config
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\bin\Debug\SchedulingTask.dll
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\bin\Debug\SchedulingTask.pdb
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\bin\Debug\log4net.dll
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\bin\Debug\Quartz.dll
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\bin\Debug\log4net.xml
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\bin\Debug\Quartz.pdb
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\bin\Debug\Quartz.xml
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\obj\Debug\SchedulingTask.csprojResolveAssemblyReference.cache
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\obj\Debug\SchedulingTask.dll
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\obj\Debug\SchedulingTask.pdb

@@ -40,6 +40,7 @@ namespace SchedulingTaskPlatform
 
         private void button2_Click(object sender, EventArgs e)
         {
+            #region 手工载入
             Dictionary<string, object> param = new Dictionary<string, object>();
             param.Add("sql", "select * from zcs");
             param.Add("count", 1);
@@ -54,7 +55,9 @@ namespace SchedulingTaskPlatform
                 TriggerGroup = "b",
                 SecondInterval = 10
             };
-            taskRunner.AddScheduler<HelloJob>(jobInfo, triggerInfo, param);
+            taskRunner.ScheduleFactory.AddScheduler<HelloJob>(jobInfo, triggerInfo, param);
+            #endregion
+
             taskRunner.Start();
         }
 

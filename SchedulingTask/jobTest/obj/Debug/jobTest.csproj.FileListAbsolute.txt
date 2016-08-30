@@ -1,0 +1,15 @@
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\jobTest.dll
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\jobTest.pdb
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\Quartz.dll
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\Quartz.pdb
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\Quartz.xml
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\obj\Debug\jobTest.csprojResolveAssemblyReference.cache
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\obj\Debug\jobTest.dll
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\obj\Debug\jobTest.pdb
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\log4net.dll
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\log4net.xml
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\log4net.config
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\schedule.config
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\SchedulingTask.dll
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\XmlAdapter.XmlRepository.dll
+E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\SchedulingTask.pdb
