@@ -58,6 +58,7 @@ namespace SchedulingTask
                 #region 获取触发器信息
                 XElement triggers = xmlHelper.QueryXElement("triggers").FirstOrDefault();
                 string triggerGroup = String.Empty;
+                string cronExpression = String.Empty;
                 int secondInterval = 0;
                 foreach (XElement tr in triggers.Descendants("trigger"))
                 {
@@ -66,14 +67,16 @@ namespace SchedulingTask
                     {
                         triggerGroup = tr.Descendants("TriggerGroup").FirstOrDefault().Value.Trim();
                         int.TryParse(tr.Descendants("SecondInterval").FirstOrDefault().Value.Trim(), out secondInterval);
+                        cronExpression = tr.Descendants("CronExpression").FirstOrDefault().Value.Trim();
                     }
                 }
 
                 TriggerInfo triggerInfo = new TriggerInfo
                 {
-                    TriggerName = triggerName,
+                    TriggerName = triggerName + "_" + jobName,//触发器名称由配置文件中的触发器名加任务名组成，防止重复报错
                     TriggerGroup = triggerGroup,
-                    SecondInterval = secondInterval
+                    SecondInterval = secondInterval,
+                    CronExpression = cronExpression
                 };
                 #endregion
 
@@ -108,12 +111,25 @@ namespace SchedulingTask
                     .WithIdentity(jobInfo.JobName, jobInfo.JobGroup)
                     .Build();
 
-                // Trigger the job to run on the next round minute
-                ITrigger trigger = TriggerBuilder.Create()
-                    .WithIdentity(triggerInfo.TriggerName, triggerInfo.TriggerGroup)
-                    .StartNow()
-                    .WithSchedule(SimpleScheduleBuilder.Create().WithIntervalInSeconds(triggerInfo.SecondInterval).RepeatForever())
-                    .Build();
+                ITrigger trigger;
+                if (triggerInfo.CronExpression == String.Empty)
+                {
+                    // Trigger the job to run on the next round minute
+                        trigger = TriggerBuilder.Create()
+                        .WithIdentity(triggerInfo.TriggerName, triggerInfo.TriggerGroup)
+                        .StartNow()
+                        .WithSchedule(SimpleScheduleBuilder.Create().WithIntervalInSeconds(triggerInfo.SecondInterval).RepeatForever())
+                        .Build();
+                }
+                else
+                {
+                    //使用Cron表达式生成触发器
+                        trigger = TriggerBuilder.Create()
+                        .WithIdentity(triggerInfo.TriggerName, triggerInfo.TriggerGroup)
+                        .StartNow().WithCronSchedule(triggerInfo.CronExpression)
+                        .Build();
+                }
+
 
                 // set parameters
                 foreach (var key in jobParam.Keys)

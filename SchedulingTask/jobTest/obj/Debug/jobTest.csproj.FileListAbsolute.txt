@@ -11,5 +11,4 @@ E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\log4net.xml
 E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\log4net.config
 E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\schedule.config
 E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\SchedulingTask.dll
-E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\XmlAdapter.XmlRepository.dll
 E:\zcsgit\SchedulingTask\SchedulingTask\jobTest\bin\Debug\SchedulingTask.pdb
