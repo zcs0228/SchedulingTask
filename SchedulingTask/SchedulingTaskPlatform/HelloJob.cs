@@ -17,7 +17,7 @@ namespace SchedulingTaskPlatform
             string SQL = data.GetString("sql");
             int count = data.GetInt("count");
 
-            LogHelper.WriteLog("---------------------------------" + System.DateTime.Now.ToString() +
+            LogHelper.WriteInfoLog("---------------------------------" + System.DateTime.Now.ToString() +
                 "---------------------------------");
         }
     }

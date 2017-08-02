@@ -28,6 +28,9 @@ namespace SchedulingTask
             xmlHelper = new XmlHelper(filePath);
             scheduler = StdSchedulerFactory.GetDefaultScheduler();
         }
+        /// <summary>
+        /// 通过配置文件反射载入调度任务
+        /// </summary>
         public void Initial()
         {
             #region 挂载添加引用程序集的事件
@@ -100,7 +103,14 @@ namespace SchedulingTask
                 AddScheduler(ot, jobInfo, triggerInfo, param);
             }
         }
-
+        /// <summary>
+        /// 反射载入调度任务
+        /// </summary>
+        /// <param name="jobType"></param>
+        /// <param name="jobInfo"></param>
+        /// <param name="triggerInfo"></param>
+        /// <param name="jobParam"></param>
+        /// <returns></returns>
         public bool AddScheduler(Type jobType, JobInfo jobInfo, TriggerInfo triggerInfo,
             Dictionary<string, object> jobParam)
         {
@@ -112,13 +122,16 @@ namespace SchedulingTask
                     .Build();
 
                 ITrigger trigger;
-                if (triggerInfo.CronExpression == String.Empty)
+                if (triggerInfo.CronExpression == null || triggerInfo.CronExpression == String.Empty)
                 {
                     // Trigger the job to run on the next round minute
                         trigger = TriggerBuilder.Create()
                         .WithIdentity(triggerInfo.TriggerName, triggerInfo.TriggerGroup)
                         .StartNow()
-                        .WithSchedule(SimpleScheduleBuilder.Create().WithIntervalInSeconds(triggerInfo.SecondInterval).RepeatForever())
+                        .WithSimpleSchedule(x => x
+                            .WithIntervalInSeconds(triggerInfo.SecondInterval)
+                            .RepeatForever()
+                            .WithMisfireHandlingInstructionNextWithExistingCount())
                         .Build();
                 }
                 else
@@ -143,11 +156,19 @@ namespace SchedulingTask
             }
             catch (SchedulerException se)
             {
-                LogHelper.WriteLog("添加定时任务报错", se);
+                LogHelper.WriteErrLog("添加定时任务报错", se);
                 return false;
             }
         }
 
+        /// <summary>
+        /// 手动载入调度任务
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="jobInfo"></param>
+        /// <param name="triggerInfo"></param>
+        /// <param name="jobParam"></param>
+        /// <returns></returns>
         public bool AddScheduler<T>(JobInfo jobInfo, TriggerInfo triggerInfo,
             Dictionary<string, object> jobParam) where T : IJob
         {
@@ -159,11 +180,25 @@ namespace SchedulingTask
                     .Build();
 
                 // Trigger the job to run on the next round minute
-                ITrigger trigger = TriggerBuilder.Create()
+                ITrigger trigger;
+                if (triggerInfo.CronExpression == null || triggerInfo.CronExpression == String.Empty)
+                {
+                    trigger = TriggerBuilder.Create()
                     .WithIdentity(triggerInfo.TriggerName, triggerInfo.TriggerGroup)
                     .StartNow()
-                    .WithSchedule(SimpleScheduleBuilder.Create().WithIntervalInSeconds(triggerInfo.SecondInterval).RepeatForever())
+                    .WithSchedule(SimpleScheduleBuilder.Create()
+                        .WithIntervalInSeconds(triggerInfo.SecondInterval)
+                        .RepeatForever())
                     .Build();
+                }
+                else
+                {
+                    //使用Cron表达式生成触发器
+                    trigger = TriggerBuilder.Create()
+                    .WithIdentity(triggerInfo.TriggerName, triggerInfo.TriggerGroup)
+                    .StartNow().WithCronSchedule(triggerInfo.CronExpression)
+                    .Build();
+                }
 
                 // set parameters
                 foreach (var key in jobParam.Keys)
@@ -177,7 +212,7 @@ namespace SchedulingTask
             }
             catch (SchedulerException se)
             {
-                LogHelper.WriteLog("添加定时任务报错", se);
+                LogHelper.WriteErrLog("添加定时任务报错", se);
                 return false;
             }
         }

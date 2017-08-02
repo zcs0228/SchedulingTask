@@ -12,7 +12,7 @@ namespace SchedulingTask
 
         private static readonly log4net.ILog logerror = log4net.LogManager.GetLogger("logerror");
 
-        public static void WriteLog(string info)
+        public static void WriteInfoLog(string info)
         {
             if (loginfo.IsInfoEnabled)
             {
@@ -20,7 +20,7 @@ namespace SchedulingTask
             }
         }
 
-        public static void WriteLog(string info, Exception se)
+        public static void WriteErrLog(string info, Exception se)
         {
             if (logerror.IsErrorEnabled)
             {

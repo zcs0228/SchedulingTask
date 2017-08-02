@@ -20,3 +20,17 @@ E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\bin\Debug\Quartz.xml
 E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\obj\Debug\SchedulingTask.dll
 E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\obj\Debug\SchedulingTask.pdb
 E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\obj\Debug\SchedulingTask.csprojResolveAssemblyReference.cache
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTask\bin\Debug\System.Net.Http.dll
+C:\Users\zcs\Desktop\浪潮集团CRM\资金\SchedulingTask\SchedulingTask\obj\Debug\SchedulingTask.dll
+C:\Users\zcs\Desktop\浪潮集团CRM\资金\SchedulingTask\SchedulingTask\obj\Debug\SchedulingTask.pdb
+C:\Users\zcs\Desktop\浪潮集团CRM\资金\SchedulingTask\SchedulingTask\bin\Debug\log4net.config
+C:\Users\zcs\Desktop\浪潮集团CRM\资金\SchedulingTask\SchedulingTask\bin\Debug\schedule.config
+C:\Users\zcs\Desktop\浪潮集团CRM\资金\SchedulingTask\SchedulingTask\bin\Debug\SchedulingTask.dll
+C:\Users\zcs\Desktop\浪潮集团CRM\资金\SchedulingTask\SchedulingTask\bin\Debug\SchedulingTask.pdb
+C:\Users\zcs\Desktop\浪潮集团CRM\资金\SchedulingTask\SchedulingTask\bin\Debug\log4net.dll
+C:\Users\zcs\Desktop\浪潮集团CRM\资金\SchedulingTask\SchedulingTask\bin\Debug\Quartz.dll
+C:\Users\zcs\Desktop\浪潮集团CRM\资金\SchedulingTask\SchedulingTask\bin\Debug\System.Net.Http.dll
+C:\Users\zcs\Desktop\浪潮集团CRM\资金\SchedulingTask\SchedulingTask\bin\Debug\log4net.xml
+C:\Users\zcs\Desktop\浪潮集团CRM\资金\SchedulingTask\SchedulingTask\bin\Debug\Quartz.pdb
+C:\Users\zcs\Desktop\浪潮集团CRM\资金\SchedulingTask\SchedulingTask\bin\Debug\Quartz.xml
+C:\Users\zcs\Desktop\浪潮集团CRM\资金\SchedulingTask\SchedulingTask\obj\Debug\SchedulingTask.csprojResolveAssemblyReference.cache

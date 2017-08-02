@@ -17,7 +17,7 @@ namespace jobTest
             string SQL = data.GetString("sql");
             int count = data.GetInt("count");
 
-            LogHelper.WriteLog("---------------------------------" + System.DateTime.Now.ToString() + SQL + count.ToString() +
+            LogHelper.WriteInfoLog("---------------------------------" + System.DateTime.Now.ToString() + SQL + count.ToString() +
                 "---------------------------------");
         }
     }

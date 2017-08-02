@@ -23,6 +23,7 @@ namespace SchedulingTaskPlatform
 
         private void button1_Click(object sender, EventArgs e)
         {
+            taskRunner.PauseJob("a", "b");
             //log4net.Config.XmlConfigurator.ConfigureAndWatch(new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "log4net.config"));
             //HostFactory.Run(x =>
             //{
@@ -36,6 +37,11 @@ namespace SchedulingTaskPlatform
 
             //    x.EnablePauseAndContinue();
             //});
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            taskRunner.ResumeJob("a", "b");
         }
 
         private void button2_Click(object sender, EventArgs e)

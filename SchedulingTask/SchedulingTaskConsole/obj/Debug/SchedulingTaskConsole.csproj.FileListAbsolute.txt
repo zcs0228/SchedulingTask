@@ -38,3 +38,4 @@ E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTaskConsole\bin\Debug\Quartz.x
 E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTaskConsole\obj\Debug\SchedulingTaskConsole.csprojResolveAssemblyReference.cache
 E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTaskConsole\obj\Debug\SchedulingTaskConsole.exe
 E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTaskConsole\obj\Debug\SchedulingTaskConsole.pdb
+E:\zcsgit\SchedulingTask\SchedulingTask\SchedulingTaskConsole\bin\Debug\System.Net.Http.dll
